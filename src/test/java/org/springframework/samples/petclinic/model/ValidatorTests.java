@@ -17,8 +17,9 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
  *         Simple test to make sure that Bean Validation is working
  *         (useful when upgrading to a new version of Hibernate Validator/ Bean Validation)
  */
-private Validator createValidator() {
-    
+public class ValidatorTests {
+
+    private Validator createValidator() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
         localValidatorFactoryBean.afterPropertiesSet();
         return localValidatorFactoryBean;
