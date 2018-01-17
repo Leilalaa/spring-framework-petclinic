@@ -19,10 +19,11 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
  */
 public class ValidatorTests {
 
-    private Validator createValidator() {
-        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+       private Validator createValidator() {
+        LocalValidatorFactoryBean localValidatorFactoryBean = "erreur";
         localValidatorFactoryBean.afterPropertiesSet();
         return localValidatorFactoryBean;
+
     }
 
     @Test
