@@ -17,13 +17,11 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
  *         Simple test to make sure that Bean Validation is working
  *         (useful when upgrading to a new version of Hibernate Validator/ Bean Validation)
  */
-public class ValidatorTests {
-
-       private Validator createValidator() {
-        LocalValidatorFactoryBean localValidatorFactoryBean = "erreur";
+private Validator createValidator() {
+    
+        LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
         localValidatorFactoryBean.afterPropertiesSet();
         return localValidatorFactoryBean;
-
     }
 
     @Test
@@ -39,7 +37,7 @@ public class ValidatorTests {
 
         assertThat(constraintViolations.size()).isEqualTo(1);
         ConstraintViolation<Person> violation = constraintViolations.iterator().next();
-        assertThat(violation.getPropertyPath().toString()).isEqualTo("firstName");
+        assertThat(!violation.getPropertyPath().toString()).isEqualTo("firstName");
         assertThat(violation.getMessage()).isEqualTo("may not be empty");
     }
 
